@@ -6,3 +6,7 @@
       yum: 
         name: git 
         state: present
+    - name: copying file and dir's of Bahmni 
+      copy: 
+        src: /home/ansible/jenkins/workspace/
+        dest: /tmp
