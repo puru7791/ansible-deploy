@@ -1,7 +1,7 @@
 provider "aws" {
-    access_key = var.access
-    secret_key = var.secret
-    region = var.region
+    access_key = "${var.access}"
+    secret_key = "${var.secret}"
+    region = "${var.region}"
 }
 resource "aws_instance" "bahmni" {
     ami = "ami-01e36b7901e884a10"
