@@ -5,7 +5,7 @@ provider "aws" {
   
 }
 resource "aws_instance" "bahmni" {
-    ami = ""
+    ami = "ami-01e36b7901e884a10"
     instance_type = "t2.medium"
     key_name = "yum"
     security_groups = ["alltraffic"]
