@@ -1,11 +1,10 @@
-provider "awsw" {
-    access_key = ""
-    secret_key = ""
-    region = "us-east-2"
-  
+provider "aws" {
+    access_key = var.access
+    secret_key = var.secret
+    region = var.region
 }
 resource "aws_instance" "bahmni" {
-    ami = ""
+    ami = "ami-01e36b7901e884a10"
     instance_type = "t2.medium"
     key_name = "yum"
     security_groups = ["alltraffic"]
