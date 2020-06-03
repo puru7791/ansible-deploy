@@ -19,17 +19,17 @@ resource "aws_instance" "bahmni" {
     tags{
         Name = "Bahmni"
     }
-}
-provisioner "remote_exec"{
-    inline = [
-        "chmod +x ./bahmni_installation.sh",
-        "./bahmni_installation.sh args"
-    ]
+    provisioner "remote_exec"{
+        inline = [
+            "chmod +x ./bahmni_installation.sh",
+            "./bahmni_installation.sh args"
+        ]
+    }
+    provisioner "file"{
+        source        = "/tmp/bahmni"
+        destination   = "/etc/bahmni-installer/deployment-artifacts/"
 
-}
-provisioner "file"{
-    source        = "/tmp/bahmni"
-    destination   = "/etc/bahmni-installer/deployment-artifacts/"
+    }
 
 }
 
