@@ -19,7 +19,7 @@ resource "aws_instance" "bahmni" {
     tags{
         Name = "Bahmni"
     }
-    provisioner "remote_exec"{
+    provisioner "local-exec"{
         inline = [
             "chmod +x ./bahmni_installation.sh",
             "./bahmni_installation.sh args"
