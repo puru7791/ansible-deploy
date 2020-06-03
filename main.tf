@@ -1,6 +1,6 @@
 provider "awsw" {
-    access_key = ""
-    secret_key = ""
+    access_key = "AKIASTOZVXBRZV32ZUZS"
+    secret_key = "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"
     region = "us-east-2"
   
 }
