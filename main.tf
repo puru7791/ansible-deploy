@@ -32,6 +32,18 @@ resource "aws_instance" "bahmni" {
         destination   = "/etc/bahmni-installer/deployment-artifacts/"
 
     }
+    provisioner "remote-exec"{
+        inline = [
+            "echo 'export BAHMNI_INVENTORY=local' >> ~/.bashrc",
+            "source ~/.bashrc"
+        ]
+        
+    }
+    provisioner "remote_exec"{
+        inline = [
+            "bahmni install"
+        ]
+    }
 
 }
 
