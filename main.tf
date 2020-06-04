@@ -19,14 +19,9 @@ resource "aws_instance" "bahmni" {
     tags{
         Name = "Bahmni"
     }
-    provisioner "local-exec"{
-        command = "chmod +x ./bahmni_installation.sh"  
+    provisioner "remote-exec"{
+        command = "sh ./bahmni_installation.sh"  
     }
-
-    provisioner "local-exec"{
-        command = "./bahmni_installation.sh args"
-    }
-
     provisioner "file"{
         source        = "/tmp/bahmni"
         destination   = "/etc/bahmni-installer/deployment-artifacts/"
