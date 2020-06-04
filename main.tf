@@ -20,7 +20,7 @@ resource "aws_instance" "bahmni" {
         Name = "Bahmni"
     }
     provisioner "remote-exec"{
-        inline =["sh ./bahmni_installation.sh"]  
+        inline =["sh bahmni_installation.sh"]  
     }
     provisioner "file"{
         source        = "/tmp/bahmni"
