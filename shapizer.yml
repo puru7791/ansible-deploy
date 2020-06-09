@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: installing tomcat
+      yum: 
+        name: tomcat
+        state: present
+    - name: copying file and dir's of Shopizer 
+      copy: 
+        src: /home/ansible/jenkins/workspace/
+        dest: /var/lib/tomcat/webapps/
+      notify: 
+        - restarting tomcat
+  handlers:
+    - name: restarting tomcat
+      service:
+          name: tomcat # required. Name of the service.
+          enabled: yes
+          state: restarted
